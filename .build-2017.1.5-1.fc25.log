@@ -1,0 +1,39 @@
+
+Executing(%prep): /bin/sh -e /var/tmp/rpm-tmp.eiuAyM
++ umask 022
++ cd /home/allan/git/fedora-intellij-idea
++ mkdir -pv /home/allan/rpmbuild/BUILDROOT/intellij-idea-community-2017.1.5-1.fc25.x86_64/idea
++ cd /home/allan/rpmbuild/BUILDROOT/intellij-idea-community-2017.1.5-1.fc25.x86_64
++ pv -f /home/allan/git/fedora-intellij-idea/ideaIC-2017.1.5-no-jdk.tar.gz
++ tar -zx --strip-components=1 -C idea
+57.1MiB 0:00:01 [57.1MiB/s] [====>                             ] 16% ETA 0:00:04 117MiB 0:00:02 [60.6MiB/s] [==========>                       ] 34% ETA 0:00:03 194MiB 0:00:03 [76.4MiB/s] [==================>               ] 57% ETA 0:00:02 272MiB 0:00:04 [  78MiB/s] [==========================>       ] 80% ETA 0:00:00 333MiB 0:00:05 [61.2MiB/s] [================================> ] 98% ETA 0:00:00 339MiB 0:00:05 [66.6MiB/s] [================================>] 100%            
++ exit 0
+Executing(%install): /bin/sh -e /var/tmp/rpm-tmp.UnaImO
++ umask 022
++ cd /home/allan/git/fedora-intellij-idea
++ '[' /home/allan/rpmbuild/BUILDROOT/intellij-idea-community-2017.1.5-1.fc25.x86_64 '!=' / ']'
++ rm -rf /home/allan/rpmbuild/BUILDROOT/intellij-idea-community-2017.1.5-1.fc25.x86_64
+++ dirname /home/allan/rpmbuild/BUILDROOT/intellij-idea-community-2017.1.5-1.fc25.x86_64
++ mkdir -p /home/allan/rpmbuild/BUILDROOT
++ mkdir /home/allan/rpmbuild/BUILDROOT/intellij-idea-community-2017.1.5-1.fc25.x86_64
++ '[' '%{buildarch}' = noarch ']'
++ QA_CHECK_RPATHS=1
++ case "${QA_CHECK_RPATHS:-}" in
++ /usr/lib/rpm/check-rpaths
++ /usr/lib/rpm/check-buildroot
++ /usr/lib/rpm/brp-compress
++ /usr/lib/rpm/brp-strip /usr/bin/strip
++ /usr/lib/rpm/brp-strip-comment-note /usr/bin/strip /usr/bin/objdump
++ /usr/lib/rpm/brp-strip-static-archive /usr/bin/strip
++ /usr/lib/rpm/brp-python-bytecompile /usr/bin/python 1
++ /usr/lib/rpm/brp-python-hardlink
++ /usr/lib/rpm/redhat/brp-java-repack-jars
+Processing files: intellij-idea-community-2017.1.5-1.fc25.x86_64
+Checking for unpackaged file(s): /usr/lib/rpm/check-files /home/allan/rpmbuild/BUILDROOT/intellij-idea-community-2017.1.5-1.fc25.x86_64
+Wrote: /home/allan/git/fedora-intellij-idea/intellij-idea-community-2017.1.5-1.fc25.src.rpm
+Wrote: /home/allan/git/fedora-intellij-idea/x86_64/intellij-idea-community-2017.1.5-1.fc25.x86_64.rpm
+Executing(%clean): /bin/sh -e /var/tmp/rpm-tmp.SuKERr
++ umask 022
++ cd /home/allan/git/fedora-intellij-idea
++ /usr/bin/rm -rf /home/allan/rpmbuild/BUILDROOT/intellij-idea-community-2017.1.5-1.fc25.x86_64
++ exit 0
