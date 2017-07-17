@@ -1,0 +1,33 @@
+python := python3
+pip := pip --disable-pip-version-check
+venv := source .env/bin/activate &&
+rpmspectool-version := 1.99.5
+idea-version := 2017.1.5
+idea-src-url := https://download-cf.jetbrains.com/idea/ideaIC-$(idea-version)-no-jdk.tar.gz
+
+export PYCURL_SSL_LIBRARY := nss
+
+.env:
+	$(python) -m venv $@
+	$(venv) $(pip) install rpmspectool==$(rpmspectool-version)
+	# Fix bug in rpmspectool distribution
+	sed -i '\|#!|s|.*|#!/usr/bin/env python|' $@/bin/rpmspectool
+	# Check rpmspectool works - can fail if PYCURL_SSL_LIBRARY is wrong
+	$(venv) output=$$(rpmspectool) || echo $$output
+
+clean-env:
+	rm -rf .env
+
+requirements.txt: clean-env .env
+	$(venv) $(pip) freeze > $@
+
+ideaIC-$(idea-version)-no-jdk.tar.gz:
+	wget -N $(idea-src-url)
+
+sources.txt: intellij-idea-community.spec
+	$(venv) rpmspectool list $< > $@
+
+plugins: sources.txt
+	grep -o 'http.*' $< | xargs -rt wget -NP $@
+
+.PHONY: clean-env plugins
